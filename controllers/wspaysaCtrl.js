@@ -9,10 +9,10 @@ function wspaysa_ROUTER(router,connection,md5) {
 wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 
 // Mensaje de funcionamiento
-	router.get("/",function(req,res){
+/*	router.get("/",function(req,res){
         res.json({"Message" : "Prueba de WebService wsPaysa MTI 2015!"});
     });
-	
+	*/
 	
 /*****************************************ESTABLECIMIENTOS****************************************/	
 /*************************************************************************************************/
