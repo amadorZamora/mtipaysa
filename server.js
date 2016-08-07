@@ -4,6 +4,8 @@ var bodyParser  = require("body-parser");
 var md5 = require('MD5');
 var wspaysaCtrl = require("./controllers/wspaysaCtrl.js");
 var app  = express();
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
 
 function WSPAYSA(){
     var self = this;
