@@ -15,9 +15,9 @@ WSPAYSA.prototype.connectMysql = function() {
     var pool      =    mysql.createPool({
         connectionLimit : 100,
         host     : 'us-cdbr-iron-east-04.cleardb.net',
-        user     : 'b06c75a29ad310',
-        password : '0681cb27',
-        database : 'heroku_6734592a49bb139',
+        user     : 'b261b8c5cca238',
+        password : '3a3d600f',
+        database : 'heroku_a9c433b2475ef33',
         debug    :  false
     });
     pool.getConnection(function(err,connection){
