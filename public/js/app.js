@@ -1,20 +1,20 @@
-angular.module("contactsApp", ['ngRoute'])
+angular.module("paysaApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
                 controller: "ListController",
                 resolve: {
-                    contacts: function(Contacts) {
-                        return Contacts.getContacts();
+                    establecimientos: function(Establecimientos) {
+                        return Establecimientos.getEstablecimientos();
                     }
                 }
             })
-            .when("/new/contact", {
+            .when("/new/establecimiento", {
                 controller: "NewContactController",
                 templateUrl: "contact-form.html"
             })
-            .when("/contact/:contactId", {
+            .when("/establecimiento/:id_establecimiento", {
                 controller: "EditContactController",
                 templateUrl: "contact.html"
             })
@@ -22,65 +22,65 @@ angular.module("contactsApp", ['ngRoute'])
                 redirectTo: "/"
             })
     })
-    .service("Contacts", function($http) {
-        this.getContacts = function() {
-            return $http.get("/contacts").
+    .service("Establecimientos", function($http) {
+        this.getEstablecimientos = function() {
+            return $http.get("/establecimiento").
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding contacts.");
+                    alert("Error encontrando los establecimientos");
                 });
         }
-        this.createContact = function(contact) {
-            return $http.post("/contacts", contact).
+        this.createEstablecimiento = function(establecimiento) {
+            return $http.post("/establecimiento", establecimiento).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error creating contact.");
+                    alert("Error creando nuevo establecimiento.");
                 });
         }
-        this.getContact = function(contactId) {
-            var url = "/contacts/" + contactId;
+        this.getEstablecimiento = function(id_establecimiento) {
+            var url = "/establecimiento/" +id_establecimiento;
             return $http.get(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error finding this contact.");
+                    alert("Error encontrando el establecimiento solicitado.");
                 });
         }
-        this.editContact = function(contact) {
-            var url = "/contacts/" + contact._id;
-            console.log(contact._id);
-            return $http.put(url, contact).
+        this.editEstablecimiento = function(establecimiento) {
+            var url = "/establecimiento/" + establecimiento.id_establecimiento;
+            console.log(establecimiento.id_establecimiento);
+            return $http.put(url, establecimiento).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error editing this contact.");
+                    alert("Error editando el establecimiento seleccionado.");
                     console.log(response);
                 });
         }
-        this.deleteContact = function(contactId) {
-            var url = "/contacts/" + contactId;
+        this.deleteEstablecimiento = function(id_establecimiento) {
+            var url = "/establecimiento/" + id_establecimiento;
             return $http.delete(url).
                 then(function(response) {
                     return response;
                 }, function(response) {
-                    alert("Error deleting this contact.");
+                    alert("Error elimiando establecimiento seleccionado.");
                     console.log(response);
                 });
         }
     })
-    .controller("ListController", function(contacts, $scope) {
-        $scope.contacts = contacts.data;
+    .controller("ListController", function(establecimientos, $scope) {
+        $scope.establecimientos = establecimientos.data;
     })
-    .controller("NewContactController", function($scope, $location, Contacts) {
+    .controller("NewContactController", function($scope, $location, Establecimientos) {
         $scope.back = function() {
             $location.path("#/");
         }
 
-        $scope.saveContact = function(contact) {
-            Contacts.createContact(contact).then(function(doc) {
-                var contactUrl = "/contact/" + doc.data._id;
+        $scope.saveEstablecimiento = function(establecimiento) {
+            Establecimientos.createEstablecimiento(establecimiento).then(function(doc) {
+                var contactUrl = "/establecimiento/" + doc.data._id;
                 $location.path(contactUrl);
             }, function(response) {
                 alert(response);
@@ -88,8 +88,8 @@ angular.module("contactsApp", ['ngRoute'])
         }
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
-        Contacts.getContact($routeParams.contactId).then(function(doc) {
-            $scope.contact = doc.data;
+        Establecimientos.getEstablecimiento($routeParams.id_establecimiento).then(function(doc) {
+            $scope.establecimiento = doc.data;
         }, function(response) {
             alert(response);
         });
@@ -104,13 +104,13 @@ angular.module("contactsApp", ['ngRoute'])
             $scope.contactFormUrl = "";
         }
 
-        $scope.saveContact = function(contact) {
-            Contacts.editContact(contact);
+        $scope.saveEstablecimiento = function(establecimiento) {
+            Establecimientos.editEstablecimiento(establecimiento);
             $scope.editMode = false;
             $scope.contactFormUrl = "";
         }
 
-        $scope.deleteContact = function(contactId) {
-            Contacts.deleteContact(contactId);
+        $scope.deleteEstablecimiento = function(id_establecimiento) {
+            Establecimientos.deleteEstablecimiento(id_establecimiento);
         }
     });
