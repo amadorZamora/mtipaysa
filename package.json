@@ -1,5 +1,5 @@
 {
- "name": "WEB + WS - Paysa - MTI 2015",
+ "name": "mtiPaysa2015",
  "version": "2.0.0",
  "scripts":{
 	 "start":"node server.js"
