@@ -4,7 +4,7 @@ angular.module("paysaApp", ['ngRoute'])
             
         	//OK
         	.when("/", {
-                templateUrl: "list.html",
+                templateUrl: "listaEstablecimiento.html",
                 controller: "EstablecimientoController",
                 resolve: {
                     establecimientos: function(Establecimientos) {
@@ -16,18 +16,18 @@ angular.module("paysaApp", ['ngRoute'])
             //OK
             .when("/new/establecimiento", {
                 controller: "NewEstablecimientoController",
-                templateUrl: "contact-form.html"
+                templateUrl: "establecimiento-form.html"
             })
             
             
             .when("/establecimiento/:id_establecimiento", {
                 controller: "EditEstablecimientoController",
-                templateUrl: "contact.html"
+                templateUrl: "establecimiento.html"
             })
             
             //OK
             .otherwise({
-                redirectTo: "#/"
+                redirectTo: "/"
             })
     })
     
@@ -131,7 +131,7 @@ angular.module("paysaApp", ['ngRoute'])
 
         $scope.toggleEdit = function() {
             $scope.editMode = true;
-            $scope.contactFormUrl = "contact-form.html";
+            $scope.contactFormUrl = "establecimiento-form.html";
         }
 
         $scope.back = function() {
