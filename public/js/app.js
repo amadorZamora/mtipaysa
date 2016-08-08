@@ -3,7 +3,7 @@ angular.module("paysaApp", ['ngRoute'])
         $routeProvider
             .when("/", {
                 templateUrl: "list.html",
-                controller: "ListController",
+                controller: "EstablecimientoController",
                 resolve: {
                     establecimientos: function(Establecimientos) {
                         return Establecimientos.getEstablecimientos();
@@ -11,22 +11,25 @@ angular.module("paysaApp", ['ngRoute'])
                 }
             })
             .when("/new/establecimiento", {
-                controller: "NewContactController",
+                controller: "NewEstablecimientoController",
                 templateUrl: "contact-form.html"
             })
-            .when("/establecimiento/:id_establecimiento", {
-                controller: "EditContactController",
+            .when("/edit/establecimiento/:id_establecimiento", {
+                controller: "EditEstablecimientoController",
                 templateUrl: "contact.html"
             })
             .otherwise({
                 redirectTo: "/"
             })
     })
+    
+    //Servicios
+    
     .service("Establecimientos", function($http) {
         this.getEstablecimientos = function() {
             return $http.get("/establecimiento").
                 then(function(response) {
-                    return response;
+                	return response;
                 }, function(response) {
                     alert("Error encontrando los establecimientos");
                 });
@@ -70,10 +73,12 @@ angular.module("paysaApp", ['ngRoute'])
                 });
         }
     })
-    .controller("ListController", function(establecimientos, $scope) {
-        $scope.establecimientos = establecimientos.data;
+    
+    //Controllers
+    .controller("EstablecimientoController", function(establecimientos, $scope) {
+    	$scope.establecimientos = establecimientos.data;
     })
-    .controller("NewContactController", function($scope, $location, Establecimientos) {
+    .controller("NewEstablecimientoController", function($scope, $location, Establecimientos) {
         $scope.back = function() {
             $location.path("#/");
         }
@@ -87,7 +92,7 @@ angular.module("paysaApp", ['ngRoute'])
             });
         }
     })
-    .controller("EditContactController", function($scope, $routeParams, Contacts) {
+    .controller("EditEstablecimientoController", function($scope, $routeParams, Contacts) {
         Establecimientos.getEstablecimiento($routeParams.id_establecimiento).then(function(doc) {
             $scope.establecimiento = doc.data;
         }, function(response) {

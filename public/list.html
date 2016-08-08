@@ -7,7 +7,7 @@
   <div class="col-md-3">
   </div>
   <div class="col-md-2">
-    <a style="margin-top:20px" class="btn btn-default" href="#/new/establecimiento">Nuevo</a>
+    <a style="margin-top:20px" class="btn btn-default" href="#/new/establecimiento">Nuevo Establecimiento</a>
   </div>
   <div class="col-md-1">
   </div>
@@ -17,7 +17,7 @@
     <tbody>
       <tr ng-repeat="establecimiento in establecimientos | orderBy:'id_establecimiento'" style="cursor:pointer">
         <td>
-          <a ng-href="#/establecimiento/{{establecimiento.id_establecimiento}}">{{ establecimiento.id_establecimiento }} {{ establecimiento.direccion }}</a>
+          <a ng-href="#/edit/establecimiento/{{establecimiento.id_establecimiento}}">{{ establecimiento.id_establecimiento }}  -*-  {{ establecimiento.direccion }}</a>
         </td>
       </tr>
     </tbody>

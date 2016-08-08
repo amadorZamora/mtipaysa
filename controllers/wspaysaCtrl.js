@@ -24,9 +24,11 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
         query = mysql.format(query,table);
         connection.query(query,function(err,rows){
             if(err) {
-                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
+                //res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
+            	res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
             } else {
-                res.json({"Error" : false, "Message" : "Exito", "establecimientos" : rows});
+                //res.json({"Error" : false, "Message" : "Exito", "establecimientos" : rows});
+            	res.status(200).json(rows);
             }
         });
     });

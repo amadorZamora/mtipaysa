@@ -1,4 +1,4 @@
-<div class="row" ng-hide="contact._id">
+<div class="row" ng-hide="establecimiento.id_establecimiento">
   <div class="col-md-6">
       <h2>Crear Nuevo Establecimiento</h2>
   </div>
@@ -22,7 +22,7 @@
       <input id="name" class="form-control" type="text" ng-model="establecimiento.telefono"> 
     </p>
     <p>
-      <button style="margin-top:20px" class="btn btn-default" ng-click="saveEstablecimientp(establecimiento)">Guardar</button>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="saveEstablecimiento(establecimiento)">Guardar</button>
       <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Cancelar</button>
     </p>
   </div>
