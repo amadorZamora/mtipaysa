@@ -2,7 +2,11 @@ angular.module("paysaApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
         	//Establecimiento
+        	
         	.when("/", {
+        		templateUrl: "info.html"
+        	})
+        	.when("/listaEstablecimiento", {
                 templateUrl: "listaEstablecimiento.html",
                 controller: "EstablecimientoController",
                 resolve: {
@@ -148,11 +152,11 @@ angular.module("paysaApp", ['ngRoute'])
     //Create
     .controller("NewEstablecimientoController", function($scope, $location, Establecimientos) {
         $scope.back = function() {
-            $location.path("#/");
+            $location.path("listaEstablecimiento/");
         }
         $scope.saveEstablecimiento = function(establecimiento) {
             Establecimientos.createEstablecimiento(establecimiento).then(function(doc) {
-                var contactUrl = "/establecimientos/" + doc.data._id;
+                var contactUrl = "listaEstablecimiento/"
                 $location.path(contactUrl);
             }, function(response) {
                 alert(response);
@@ -173,13 +177,13 @@ angular.module("paysaApp", ['ngRoute'])
         }
         $scope.back = function() {
             $scope.editMode = false;
-            $scope.contactFormUrl = "";
+            $scope.contactFormUrl = "listaEstablecimiento/";
         }
         $scope.saveEstablecimiento = function(establecimiento) {
             //llamada servicio
         	Establecimientos.editEstablecimiento(establecimiento);
             $scope.editMode = false;
-            $scope.contactFormUrl = "";
+            $scope.contactFormUrl = "listaEstablecimiento/";
         }
         $scope.deleteEstablecimiento = function(id_establecimiento) {
             //llamada servicio
@@ -199,8 +203,6 @@ angular.module("paysaApp", ['ngRoute'])
         }
         $scope.saveProducto = function(producto) {
             Productos.createProducto(producto).then(function(doc) {
-                //TODO: revisar
-            	//var contactUrl = "/productos/" + doc.data._id;
                 var contactUrl = "listaProducto/";
             	$location.path(contactUrl);
             }, function(response) {
@@ -222,13 +224,13 @@ angular.module("paysaApp", ['ngRoute'])
         }
         $scope.back = function() {
             $scope.editMode = false;
-            $scope.contactFormUrl = "/listaProducto/";
+            $scope.contactFormUrl = "listaProducto/";
         }
         $scope.saveProducto = function(producto) {
             //llamada servicio
         	Productos.editProducto(producto);
             $scope.editMode = false;
-            $scope.contactFormUrl = "/listaProducto/";
+            $scope.contactFormUrl = "listaProducto/";
         }
         $scope.deleteProducto = function(codigo) {
         	//llamada servicio
