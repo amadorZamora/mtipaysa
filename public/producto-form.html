@@ -1,0 +1,33 @@
+<!-- <div class="row" ng-hide="producto.codigo">  -->
+  <div class="col-md-6">
+      <h2>Creación Nuevo Producto</h2>
+  </div>
+</div>
+<div class="container">
+  <div>
+    <p>
+      <label>Codigo (*)</label> 
+      <input id="name" class="form-control" type="text" ng-model="producto.codigo"  required> 
+    </p>
+    <p>
+      <label>Nombre (*)</label> 
+      <input id="name" class="form-control" type="text" ng-model="producto.nombre" required> 
+    </p>
+    <p>
+      <label>Moneda(*)</label> 
+      <input id="name" class="form-control" type="text" ng-model="producto.moneda" required> 
+    </p>
+    <p>
+      <label>Descripcion (*)</label> 
+      <input id="name" class="form-control" type="text" ng-model="producto.descripcion" required> 
+    </p>
+    <p>
+      <label>Precio (*)</label> 
+      <input id="name" class="form-control" type="number" ng-model="producto.precio"> 
+    </p>
+    <p>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="saveProducto(producto)">Guardar</button>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Cancelar</button>
+    </p>
+  </div>
+</div>

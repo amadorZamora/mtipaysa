@@ -20,7 +20,7 @@ angular.module("paysaApp", ['ngRoute'])
                 templateUrl: "establecimiento.html"
             })
             //Producto
-            .when("/producto", {
+            .when("/listaProducto", {
                 templateUrl: "listaProducto.html",
                 controller: "ProductoController",
                 resolve: {
@@ -90,7 +90,55 @@ angular.module("paysaApp", ['ngRoute'])
                 });
         }
     })
-    
+    //Servicios  producto 
+    .service("Productos", function($http) {
+    	this.getProductos = function() {
+            return $http.get("/productos").
+                then(function(response) {
+                	return response;
+                }, function(response) {
+                    alert("Error encontrando los productos");
+                });
+        }
+        this.createProducto = function(producto) {
+            return $http.post("/productos", producto).
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error creando nuevo producto.");
+                });
+        }
+        this.getProducto = function(codigo) {
+            var url = "/productos/" +codigo;
+            return $http.get(url).
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error encontrando el producto solicitado.");
+                });
+        }
+        this.editProducto = function(producto) {
+            var url = "/productos/" + producto.codigo;
+            console.log(producto.codigo);
+            return $http.put(url, producto).
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error editando el producto seleccionado.");
+                    console.log(response);
+                });
+        }
+        this.deleteProducto = function(codigo) {
+            var url = "/productos/" + codigo;
+            return $http.delete(url).
+                then(function(response) {
+                    return response;
+                }, function(response) {
+                    alert("Error elimiando producto seleccionado.");
+                    console.log(response);
+                });
+        }
+    })
     //Controllers
     
     //Controller Establecimiento
@@ -137,4 +185,56 @@ angular.module("paysaApp", ['ngRoute'])
             //llamada servicio
         	Establecimientos.deleteEstablecimiento(id_establecimiento);
         }
-    });
+    })
+    
+    
+  //Controller Producto
+    .controller("ProductoController", function(productos, $scope) {
+    	$scope.productos = productos.data;
+    })
+    //Create
+    .controller("NewProductoController", function($scope, $location, Productos) {
+        $scope.back = function() {
+        	$location.path("listaProducto/");
+        }
+        $scope.saveProducto = function(producto) {
+            Productos.createProducto(producto).then(function(doc) {
+                //TODO: revisar
+            	//var contactUrl = "/productos/" + doc.data._id;
+                var contactUrl = "listaProducto/";
+            	$location.path(contactUrl);
+            }, function(response) {
+                alert(response);
+            });
+        }
+    })
+    //Edit
+    .controller("EditProductoController", function($scope, $routeParams, Productos) {
+    	//llamada servicio
+    	Productos.getProducto($routeParams.codigo).then(function(doc) {
+    		$scope.producto = doc.data;
+        }, function(response) {
+            alert(response);
+        });
+        $scope.toggleEdit = function() {
+            $scope.editMode = true;
+            $scope.contactFormUrl = "producto-form.html";
+        }
+        $scope.back = function() {
+            $scope.editMode = false;
+            $scope.contactFormUrl = "/listaProducto/";
+        }
+        $scope.saveProducto = function(producto) {
+            //llamada servicio
+        	Productos.editProducto(producto);
+            $scope.editMode = false;
+            $scope.contactFormUrl = "/listaProducto/";
+        }
+        $scope.deleteProducto = function(codigo) {
+        	//llamada servicio
+        	Productos.deleteProducto(codigo);
+        }
+    })    
+    
+    
+    ;

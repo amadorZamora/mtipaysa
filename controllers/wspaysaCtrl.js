@@ -108,7 +108,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.status(200).json({"Error" : false, "Message" : "Exito", "productos" : rows});
+	                res.status(200).json(rows);
 	            }
 	        });
 	    });
