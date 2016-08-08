@@ -58,7 +58,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query. Err: " + err});
             } else {
-                res.status(200).json({"Error" : false, "Message" : "Actualizacion establecimiento por Id "+req.body.id_establecimiento});
+                res.status(201).json({"Error" : false, "Message" : "Actualizacion establecimiento por Id "+req.body.id_establecimiento});
             }
         });
     });
@@ -74,7 +74,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.status(200).json({"Error" : false, "Message" : "Establecimiento Agregado !"});
+	                //res.status(200).json({"Error" : false, "Message" : "Establecimiento Agregado !"});
+	            	res.status(204).end();
 	            }
 	        });
 	    });
@@ -88,7 +89,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.status(200).json({"Error" : false, "Message" : "Establecimiento eliminado por Id "+req.params.id_establecimiento});
+	                //res.status(200).json({"Error" : false, "Message" : "Establecimiento eliminado por Id "+req.params.id_establecimiento});
+	            	res.status(204).end();
 	            }
 	        });
 	    });
@@ -137,7 +139,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error executing MySQL query. Err: " + err});
 	            } else {
-	                res.status(200).json({"Error" : false, "Message" : "Actualizacion producto por Id "+req.body.codigo});
+	                //res.status(200).json({"Error" : false, "Message" : "Actualizacion producto por Id "+req.body.codigo});
+	            	res.status(204).end();
 	            }
 	        });
 	    });
@@ -152,7 +155,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.status(200).json({"Error" : false, "Message" : "Producto Agregado !"});
+		                res.status(201).json({"Error" : false, "Message" : "Producto Agregado !"});
 		            }
 		        });
 		    });
@@ -166,7 +169,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.status(200).json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.codigo});
+		                //res.status(200).json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.codigo});
+		            	res.status(204).end();
 		            }
 		        });
 		    });	 
@@ -216,7 +220,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.status(200).json({"Error" : false, "Message" : "Linea de Inventario Agregada !"});
+		                res.status(201).json({"Error" : false, "Message" : "Linea de Inventario Agregada !"});
+		            	
 		            }
 		        });
 		    });
@@ -233,7 +238,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 			            if(err) {
 			                res.json({"Error" : true, "Message" : "Error executing MySQL query. Err: " + err});
 			            } else {
-			                res.status(200).json({"Error" : false, "Message" : "Actualizacion cantidad de productos en la linea Id "+req.body.id_lineaInventario});
+			                //res.status(204).json({"Error" : false, "Message" : "Actualizacion cantidad de productos en la linea Id "+req.body.id_lineaInventario});
+			            	res.status(204).end();
 			            }
 			        });
 			    });		 
@@ -248,7 +254,8 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.status(200).json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.id_lineaInventario});
+		                //res.status(204).json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.id_lineaInventario});
+		            	res.status(204).end();
 		            }
 		        });
 		    });	 	    
