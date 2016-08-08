@@ -18,7 +18,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 /*************************************************************************************************/
 	
 //GET All establecimiento
-	router.get("/establecimiento",function(req,res){
+	router.get("/establecimientos",function(req,res){
         var query = "SELECT * FROM ??";
         var table = ["establecimiento"];
         query = mysql.format(query,table);
@@ -34,7 +34,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
     });
 
 //GET establecimiento by Id
-    router.get("/establecimiento/:id_establecimiento",function(req,res){
+    router.get("/establecimientos/:id_establecimiento",function(req,res){
         var query = "SELECT * FROM ?? WHERE ??=?";
         var table = ["establecimiento","id_establecimiento",req.params.id_establecimiento];
         query = mysql.format(query,table);
@@ -42,13 +42,13 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
             } else {
-                res.json({"Error" : false, "Message" : "Exito", "establecimiento" : rows});
+                res.status(200).json(rows);
             }
         });
     });
     
 //PUT establecimiento by Id
-    router.put("/establecimiento/:id_establecimiento",function(req,res){
+    router.put("/establecimientos/:id_establecimiento",function(req,res){
     	
       	var query = "UPDATE ?? SET ?? = ?, ?? = ?, ?? = ?, ?? = ? WHERE ?? = ?";
     	var table = ["establecimiento","direccion",req.body.direccion,"ciudad",req.body.ciudad,"pais",req.body.pais,"telefono",req.body.telefono,"id_establecimiento",req.body.id_establecimiento];
@@ -58,14 +58,14 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query. Err: " + err});
             } else {
-                res.json({"Error" : false, "Message" : "Actualizacion establecimiento por Id "+req.body.id_establecimiento});
+                res.status(200).json({"Error" : false, "Message" : "Actualizacion establecimiento por Id "+req.body.id_establecimiento});
             }
         });
     });
         
     
 //POST establecimiento
-	 router.post("/establecimiento",function(req,res){
+	 router.post("/establecimientos",function(req,res){
 	        var query = "INSERT INTO ??(??,??,??,??) VALUES (?,?,?,?)";
 	        
 	        var table = ["establecimiento","direccion","ciudad","pais","telefono",req.body.direccion,req.body.ciudad,req.body.pais,req.body.telefono];
@@ -74,13 +74,13 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.json({"Error" : false, "Message" : "Establecimiento Agregado !"});
+	                res.status(200).json({"Error" : false, "Message" : "Establecimiento Agregado !"});
 	            }
 	        });
 	    });
 	 
 //DELETE establecimiento by Id
-	 router.delete("/establecimiento/:id_establecimiento",function(req,res){
+	 router.delete("/establecimientos/:id_establecimiento",function(req,res){
 	        var query = "DELETE FROM ?? WHERE ?? = ?";
 	        var table = ["establecimiento","id_establecimiento",req.params.id_establecimiento];
 	        query = mysql.format(query,table);
@@ -88,7 +88,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.json({"Error" : false, "Message" : "Establecimiento eliminado por Id "+req.params.id_establecimiento});
+	                res.status(200).json({"Error" : false, "Message" : "Establecimiento eliminado por Id "+req.params.id_establecimiento});
 	            }
 	        });
 	    });
@@ -98,7 +98,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 /*************************************************************************************************/	 
 	 
 //GET All producto
-		router.get("/producto",function(req,res){
+		router.get("/productos",function(req,res){
 	        var query = "SELECT * FROM ??";
 	        var table = ["producto"];
 	        query = mysql.format(query,table);
@@ -106,13 +106,13 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.json({"Error" : false, "Message" : "Exito", "productos" : rows});
+	                res.status(200).json({"Error" : false, "Message" : "Exito", "productos" : rows});
 	            }
 	        });
 	    });
 
 //GET producto by Id
-	    router.get("/producto/:id_producto",function(req,res){
+	    router.get("/productos/:id_producto",function(req,res){
 	        var query = "SELECT * FROM ?? WHERE ??=?";
 	        var table = ["producto","codigo",req.params.id_producto];
 	        query = mysql.format(query,table);
@@ -120,13 +120,13 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 	            } else {
-	                res.json({"Error" : false, "Message" : "Exito", "producto" : rows});
+	                res.status(200).json({"Error" : false, "Message" : "Exito", "producto" : rows});
 	            }
 	        });
 	    });
 			 
 //PUT producto by Id
-	    router.put("/producto/:codigo",function(req,res){
+	    router.put("/productos/:codigo",function(req,res){
 	    	
 	      	var query = "UPDATE ?? SET ?? = ?, ?? = ?, ?? = ?, ?? = ? WHERE ?? = ?";
 	    	var table = ["producto","nombre",req.body.nombre,"moneda",req.body.moneda,"descripcion",req.body.descripcion,"precio",req.body.precio,"codigo",req.body.codigo];
@@ -137,13 +137,13 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	            if(err) {
 	                res.json({"Error" : true, "Message" : "Error executing MySQL query. Err: " + err});
 	            } else {
-	                res.json({"Error" : false, "Message" : "Actualizacion producto por Id "+req.body.codigo});
+	                res.status(200).json({"Error" : false, "Message" : "Actualizacion producto por Id "+req.body.codigo});
 	            }
 	        });
 	    });
 		    
 //POST producto
-		 router.post("/producto",function(req,res){
+		 router.post("/productos",function(req,res){
 		        var query = "INSERT INTO ??(??,??,??,??,??) VALUES (?,?,?,?,?)";
 		        var table = ["producto","codigo","nombre","moneda","descripcion","precio",req.body.codigo,req.body.nombre,req.body.moneda,req.body.descripcion,req.body.precio];
 		        query = mysql.format(query,table);
@@ -152,13 +152,13 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.json({"Error" : false, "Message" : "Producto Agregado !"});
+		                res.status(200).json({"Error" : false, "Message" : "Producto Agregado !"});
 		            }
 		        });
 		    });
 		 
 	//DELETE establecimiento by Id
-		 router.delete("/producto/:codigo",function(req,res){
+		 router.delete("/productos/:codigo",function(req,res){
 		        var query = "DELETE FROM ?? WHERE ?? = ?";
 		        var table = ["producto","codigo",req.params.codigo];
 		        query = mysql.format(query,table);
@@ -166,7 +166,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.codigo});
+		                res.status(200).json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.codigo});
 		            }
 		        });
 		    });	 
@@ -176,7 +176,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 /*************************************************************************************************/	 		 
 	 
 //GET All lineaInventario
-		router.get("/inventario",function(req,res){
+		router.get("/inventarios",function(req,res){
 		        var query = "SELECT * FROM ??";
 		        var table = ["lineaInventario"];
 		        query = mysql.format(query,table);
@@ -184,7 +184,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.json({"Error" : false, "Message" : "Exito", "lineasInventario" : rows});
+		                res.status(200).json({"Error" : false, "Message" : "Exito", "lineasInventario" : rows});
 		            }
 		        });
 		    });		 
@@ -192,7 +192,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		 
 		 
 //GET LINEA_INVENTARIO by id_establecimiento
-	    router.get("/inventario/:id_establecimiento",function(req,res){
+	    router.get("/inventarios/:id_establecimiento",function(req,res){
 		        var query = "SELECT * FROM ?? WHERE ??=?";
 		        var table = ["lineaInventario","establecimiento_id_establecimiento",req.params.id_establecimiento];	        
 		        query = mysql.format(query,table);
@@ -200,7 +200,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.json({"Error" : false, "Message" : "Exito", "lineasInventario" : rows});
+		                res.status(200).json({"Error" : false, "Message" : "Exito", "lineasInventario" : rows});
 		            }
 		        });
 		    });	 
@@ -208,7 +208,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 
 		    
 //POST lineaProducto
-		 router.post("/inventario",function(req,res){
+		 router.post("/inventarios",function(req,res){
 		        var query = "INSERT INTO ??(??,??,??) VALUES (?,?,?)";
 		        var table = ["lineaInventario","establecimiento_id_establecimiento","producto_codigo","cantidadProductos",req.body.id_establecimiento,req.body.codigo,req.body.cantidadProductos];
 		        query = mysql.format(query,table);
@@ -216,7 +216,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.json({"Error" : false, "Message" : "Linea de Inventario Agregada !"});
+		                res.status(200).json({"Error" : false, "Message" : "Linea de Inventario Agregada !"});
 		            }
 		        });
 		    });
@@ -224,7 +224,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		 
 
 //PUT lineaInventario by Id , only cantidadProductos
-		 router.put("/inventario/:id_lineaInventario",function(req,res){
+		 router.put("/inventarios/:id_lineaInventario",function(req,res){
 			    	
 			      	var query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
 			      	var table = ["lineaInventario","cantidadProductos",req.body.cantidadProductos,"id_LineaInventario",req.body.id_lineaInventario];
@@ -233,14 +233,14 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 			            if(err) {
 			                res.json({"Error" : true, "Message" : "Error executing MySQL query. Err: " + err});
 			            } else {
-			                res.json({"Error" : false, "Message" : "Actualizacion cantidad de productos en la linea Id "+req.body.id_lineaInventario});
+			                res.status(200).json({"Error" : false, "Message" : "Actualizacion cantidad de productos en la linea Id "+req.body.id_lineaInventario});
 			            }
 			        });
 			    });		 
 
 
 //DELETE lineaInventario by id_establecimiento y producto_codigo
-		 router.delete("/inventario/:id_lineaInventario",function(req,res){
+		 router.delete("/inventarios/:id_lineaInventario",function(req,res){
 		        var query = "DELETE FROM ?? WHERE ?? = ?";
 		        var table = ["lineaInventario","id_lineaInventario",req.params.id_lineaInventario];
 		        query = mysql.format(query,table);
@@ -248,7 +248,7 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		            if(err) {
 		                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
 		            } else {
-		                res.json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.id_lineaInventario});
+		                res.status(200).json({"Error" : false, "Message" : "Producto eliminado por Id "+req.params.id_lineaInventario});
 		            }
 		        });
 		    });	 	    

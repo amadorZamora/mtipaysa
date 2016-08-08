@@ -15,9 +15,9 @@
 <div class="container">
   <table class="table table-hover">
     <tbody>
-      <tr ng-repeat="establecimiento in establecimientos | orderBy:'id_establecimiento'" style="cursor:pointer">
+      <tr ng-repeat="establecimiento in establecimientos | orderBy:'id_establecimiento'" style="cursor: pointer">
         <td>
-          <a ng-href="#/edit/establecimiento/{{establecimiento.id_establecimiento}}">{{ establecimiento.id_establecimiento }}  -*-  {{ establecimiento.direccion }}</a>
+          <a ng-href="#/establecimiento/{{establecimiento.id_establecimiento}}">{{ establecimiento.id_establecimiento }} - {{ establecimiento.direccion }}</a>
         </td>
       </tr>
     </tbody>
