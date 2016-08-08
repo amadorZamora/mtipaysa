@@ -1,11 +1,13 @@
 angular.module("paysaApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
-        	//Establecimiento
+        	
         	
         	.when("/", {
         		templateUrl: "info.html"
         	})
+        	
+        	//Establecimiento
         	.when("/listaEstablecimiento", {
                 templateUrl: "listaEstablecimiento.html",
                 controller: "EstablecimientoController",
@@ -41,6 +43,19 @@ angular.module("paysaApp", ['ngRoute'])
                 controller: "EditProductoController",
                 templateUrl: "producto.html"
             })
+            //Inventario
+            .when("/listaInventario", {
+                templateUrl: "listaInventario.html",
+                controller: "EstablecimientoController",
+                resolve: {
+                    establecimientos: function(Establecimientos) {
+                        return Establecimientos.getEstablecimientos();
+                    }
+                }
+            })
+            
+            
+            
             .otherwise({
                 redirectTo: "/"
             })
