@@ -1,7 +1,7 @@
 <div class = "row">
   <div class="col-md-6">
     <h2>
-      {{ establecimiento.id_establecimiento }} {{ establecimiento.direccion }}
+      {{ establecimiento.id_establecimiento }} - {{ establecimiento.direccion }}
     </h2>
   </div>
   <div class="col-md-3">
@@ -20,7 +20,7 @@
     <p ng-if="establecimiento.telefono">Telefono: {{ establecimiento.telefono }} </p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Editar</button>
-      <a style="margin-top:20px" class="btn btn-default" href="#/">Cancelar</a>
+      <a style="margin-top:20px" class="btn btn-default" href="#/">Atras</a>
     </p>
   </div>
 </div>

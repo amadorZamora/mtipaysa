@@ -122,9 +122,9 @@ angular.module("paysaApp", ['ngRoute'])
         
     	//llamada servicio
     	Establecimientos.getEstablecimiento($routeParams.id_establecimiento).then(function(doc) {
-            $scope.establecimiento = doc.data;
-            alert('entre');
-            alert(data);
+            
+    		$scope.establecimiento = doc.data;
+            
         }, function(response) {
             alert(response);
         });
