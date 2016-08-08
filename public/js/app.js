@@ -257,15 +257,4 @@ angular.module("paysaApp", ['ngRoute'])
         
     });
 
-angular.module('showcase.angularWay', ['datatables', 'ngResource'])
-.controller('AngularWayCtrl', AngularWayCtrl);
-
-function AngularWayCtrl($resource) {
-    var vm = this;
-    alert(Establecimientos.getEstablecimientos());
-    $resource('datos.json').query().$promise.then(function(rows) {
-        vm.rows = rows;
-    });
-}
-
 
