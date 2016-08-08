@@ -1,7 +1,7 @@
 <div class = "row">
   <div class="col-md-6">
     <h2>
-      {{ producto.codigo }} - {{ producto.nombre }}
+      {{ producto.codigo | uppercase }} - {{ producto.nombre }}
     </h2>
   </div>
   <div class="col-md-3">
@@ -14,7 +14,7 @@
 </div>
 <div ng-hide="editMode" class="container">
   <div>
-    <p ng-if="producto.codigo">Codigo: {{ producto.codigo }}</p>
+    <p ng-if="producto.codigo">Codigo: {{ producto.codigo | uppercase }}</p>
     <p ng-if="producto.nombre">Nombre: {{ producto.nombre }}</p>
     <p ng-if="producto.moneda">Moneda: {{ producto.moneda }} </p>
     <p ng-if="producto.descripcion">Descripcion: {{ producto.descripcion }} </p>

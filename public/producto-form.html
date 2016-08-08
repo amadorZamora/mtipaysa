@@ -1,16 +1,17 @@
-<div class="row" ng-hide="producto.codigo">
+<div class="row" ng-hide="editMode">
   <div class="col-md-6">
       <h2>Creación Nuevo Producto</h2>
   </div>
 </div>
+
 <div class="container">
   <div>
     <!-- Solo se muestra al momento de editar, no de crear. -->
     <div ng-hide="editMode">
     	<p>
       		<label>Codigo (*)</label> 
-      		<input id="name" class="form-control" type="text" ng-model="producto.codigo" required> 
-    	</p>
+      		<input id="name" class="form-control text-uppercase" type="text" ng-model="producto.codigo"  required>
+      	</p>
     </div>
     <p>
       <label>Nombre (*)</label> 
@@ -18,7 +19,7 @@
     </p>
     <p>
       <label>Moneda(*)</label> 
-      <input id="name" class="form-control" type="text" ng-model="producto.moneda" required> 
+      <input id="name" class="form-control text-uppercase" type="text" ng-model="producto.moneda" required > 
     </p>
     <p>
       <label>Descripcion (*)</label> 

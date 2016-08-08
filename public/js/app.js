@@ -2,7 +2,7 @@ angular.module("paysaApp", ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
         	
-        	
+        	//pagina principal del sitio.
         	.when("/", {
         		templateUrl: "info.html"
         	})
@@ -25,6 +25,7 @@ angular.module("paysaApp", ['ngRoute'])
                 controller: "EditEstablecimientoController",
                 templateUrl: "establecimiento.html"
             })
+            
             //Producto
             .when("/listaProducto", {
                 templateUrl: "listaProducto.html",
@@ -55,7 +56,7 @@ angular.module("paysaApp", ['ngRoute'])
             })
             
             
-            
+            //otros casos del sitio, redirigen a la pagina del sitio principal
             .otherwise({
                 redirectTo: "/"
             })
@@ -164,6 +165,7 @@ angular.module("paysaApp", ['ngRoute'])
     .controller("EstablecimientoController", function(establecimientos, $scope) {
     	$scope.establecimientos = establecimientos.data;
     })
+    
     //Create
     .controller("NewEstablecimientoController", function($scope, $location, Establecimientos) {
         $scope.back = function() {
@@ -204,6 +206,7 @@ angular.module("paysaApp", ['ngRoute'])
             //llamada servicio
         	Establecimientos.deleteEstablecimiento(id_establecimiento);
         }
+       
     })
     
     
@@ -251,7 +254,18 @@ angular.module("paysaApp", ['ngRoute'])
         	//llamada servicio
         	Productos.deleteProducto(codigo);
         }
-    })    
-    
-    
-    ;
+        
+    });
+
+angular.module('showcase.angularWay', ['datatables', 'ngResource'])
+.controller('AngularWayCtrl', AngularWayCtrl);
+
+function AngularWayCtrl($resource) {
+    var vm = this;
+    alert(Establecimientos.getEstablecimientos());
+    $resource('datos.json').query().$promise.then(function(rows) {
+        vm.rows = rows;
+    });
+}
+
+
