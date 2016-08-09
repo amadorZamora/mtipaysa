@@ -22,7 +22,7 @@ WSPAYSA.prototype.connectMysql = function() {
         //database : 'heroku_a9c433b2475ef33',
 		
 		
-		host     : 'gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	',
+		host     : 'gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         user     : 'g2llgdab0ia3l5in',
         password : 'ksepru6m1zp96qk2',
         database : 'ap1zdxjlrsdqeib5',
