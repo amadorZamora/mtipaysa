@@ -164,7 +164,9 @@ angular.module("paysaApp", ['ngRoute'])
     //Controller Establecimiento
     .controller("EstablecimientoController", function(establecimientos, $scope) {
     	$scope.establecimientos = establecimientos.data;
-    })
+    }
+    
+    )
     
     //Create
     .controller("NewEstablecimientoController", function($scope, $location, Establecimientos) {
