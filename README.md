@@ -4,3 +4,4 @@
 - 3 objetos: establecimiento, producto, inventario
 - Metodos get, get All, put, post , delete para cada respositorio
 - Se agrega sitio web desarrollado en angulas js con funcionalidades para establecimiento, producto y listado de inventario por establecimiento.
+- Se cambia base de datos para aumentar performance de sitio web.
