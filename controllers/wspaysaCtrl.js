@@ -193,12 +193,26 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 		        });
 		    });		 
 		 
-		 
+
+//GET All lineaInventarioFilterByEstablecimiento	
+		router.get("/inventariosFilterByEstablecimiento/:id_establecimiento",function(req,res){
+	        var query = "SELECT * FROM ?? WHERE ??=?";
+	        var table = ["lineaInventario","establecimiento_id_establecimiento",req.params.id_establecimiento];	        
+	        query = mysql.format(query,table);
+	        connection.query(query,function(err,rows){
+	            if(err) {
+	                res.json({"Error" : true, "Message" : "Error ejecutando MySQL query. Err: "+ err});
+	            } else {
+	                res.status(200).json(rows);
+	            }
+	        });
+	    });	 		
+		
 		 
 //GET LINEA_INVENTARIO by id_establecimiento
-	    router.get("/inventarios/:id_establecimiento",function(req,res){
+	    router.get("/inventarios/:id_lineaInventario",function(req,res){
 		        var query = "SELECT * FROM ?? WHERE ??=?";
-		        var table = ["lineaInventario","establecimiento_id_establecimiento",req.params.id_establecimiento];	        
+		        var table = ["lineaInventario","id_lineaInventario",req.params.id_lineaInventario];	        
 		        query = mysql.format(query,table);
 		        connection.query(query,function(err,rows){
 		            if(err) {

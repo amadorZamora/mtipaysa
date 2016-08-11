@@ -37,12 +37,23 @@
     </table>
 </div> -->
   
-  <table class="table table-hover">
+  <table class="table table-hover" style="margin-top:20px">
+    <thead>
+    	<tr style="background-color:gray">
+    		<td style="text-align:left;">Id</td>
+    		<td style="text-align:left;">Dirección</td>
+    		<td style="text-align:left;">País</td>
+    		<td style="text-align:left;">Teléfono</td>
+    		<td style="text-align:center;">Acción</td>
+    	</tr>
+    </thead>
     <tbody>
       <tr ng-repeat="establecimiento in establecimientos | orderBy:'id_establecimiento'" style="cursor:pointer">
-        <td>
-          <a ng-href="#/establecimiento/{{establecimiento.id_establecimiento}}">{{ establecimiento.id_establecimiento }} - {{ establecimiento.direccion }}</a>
-        </td>
+        <td style="text-align:left;">{{ establecimiento.id_establecimiento }}</td>
+        <td style="text-align:left;">{{ establecimiento.direccion }}</td>
+        <td style="text-align:left;">{{ establecimiento.pais }}</td>
+        <td style="text-align:left;">{{ establecimiento.telefono }}</td>
+        <td style="text-align:center"><a type="button" ng-href="#/establecimiento/{{establecimiento.id_establecimiento}}" class="btn btn-default" >Detalle</a></td>
       </tr>
     </tbody>
   </table>

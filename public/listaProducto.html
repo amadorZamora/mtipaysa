@@ -13,12 +13,23 @@
   </div>
 </div>
 <div class="container">
-  <table class="table table-hover">
+  <table class="table table-hover" style="margin-top:20px">
+    <thead>
+    	<tr style="background-color:gray">
+    		<td style="text-align:left;">Código</td>
+    		<td style="text-align:left;">Nombre</td>
+    		<td style="text-align:left;">Moneda</td>
+    		<td style="text-align:left;">Precio</td>
+    		<td style="text-align:center;">Acción</td>
+    	</tr>
+    </thead>
     <tbody>
       <tr ng-repeat="producto in productos | orderBy:'codigo'" style="cursor:pointer">
-        <td>
-          <a ng-href="#/producto/{{producto.codigo}}">{{ producto.codigo }} - {{ producto.nombre }}</a>
-        </td>
+        <td style="text-align:left">{{producto.codigo}}</td>
+        <td style="text-align:left">{{producto.nombre}}</td>
+        <td style="text-align:left">{{producto.moneda}}</td>
+        <td style="text-align:left">{{producto.precio}}</td>
+        <td style="text-align:center"><a type="button" ng-href="#/producto/{{producto.codigo}}" class="btn btn-default" >Detalle</a></td>
       </tr>
     </tbody>
   </table>

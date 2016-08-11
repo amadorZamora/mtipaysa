@@ -1,48 +1,56 @@
-<div class = "row">
-  <div class="col-md-6">
-    <h2>
-      Inventario por Establecimiento
-    </h2>
-  </div>
-  <div class="col-md-3">
-  </div>
-  <div class="col-md-2" >
-    <a style="margin-top:20px" class="btn btn-default" href="#/new/inventario" ng-disabled="!establecimientoSelected">Agregar Inventario</a>
-  </div>
-  <div class="col-md-1">
-  </div>
+<div class="row">
+	<div class="col-md-6">
+		<h2>Listado Inventario por Establecimiento</h2>
+	</div>
+	<div class="col-md-3"></div>
+	<div class="col-md-2">
+		<a style="margin-top: 20px" class="btn btn-default"
+			href="#/new/inventario" ng-disabled="!establecimientoSelected">Agregar Inventario</a>
+	</div>
+	<div class="col-md-1"></div>
 </div>
 <div class="container">
-  
+
 	<table>
-	<tr>
-		<td>Seleccionar Establecimiento</td>
-	</tr>	
-	<tr>
-		<td>
-			<select ng-model="establecimientoSelected">
+		<tr>
+			<td>Seleccionar Establecimiento</td>
+		</tr>
+		<tr>
+			<td>
+				
+				<select ng-model="establecimientoSelected" ng-change="getListaInventario(establecimientoSelected)">
 
-				<option ng-repeat="establecimiento in establecimientos | orderBy: 'id_establecimiento'" value="{{establecimiento.id_establecimiento}}">{{establecimiento.id_establecimiento}}-{{establecimiento.direccion}}</option>
-			</select>
-		</td>
-	</tr>	
+					<option ng-repeat="establecimiento in establecimientos | orderBy: 'id_establecimiento'"	value="{{establecimiento.id_establecimiento}}">
+						{{establecimiento.id_establecimiento}}-{{establecimiento.direccion}}
+					</option>
+				</select>
+				
+			</td>
+		</tr>
+	</table>
+
+
+	<table class="table table-hover" style="margin-top:20px">
+		<thead>
+			<tr style="text-align:center;background-color:gray">
+				<td style="text-align:left;">Id</td>
+				<td style="text-align:left;">Producto</td>
+				<td style="text-align:left;">Cantidad</td>
+				<td style="text-align:center;">Detalle</td>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr ng-repeat="inventario in inventarios | orderBy:'id_lineaInventario'" style="cursor: pointer;text-align:center">
+				<td style="text-align:left;">{{inventario.id_lineaInventario}}</td>
+				<td style="text-align:left;">{{inventario.producto_codigo}}</td>
+				<td style="text-align:left;">{{inventario.cantidadProductos}}</td>
+				<td style="text-align:center"><a type="button" ng-href="#/inventario/{{id_lineaInventario}}" class="btn btn-default" >Detalle</a></td>
+			</tr>
+		</tbody>
+	</table>
 
 
 
-  	</table>
-  
-    
-  <table class="table table-hover">
-    <tbody>
-      <tr ng-repeat="lineaInventario in inventarios | orderBy:'id_lineaInventario'" style="cursor:pointer">
-        <td>
-          <a ng-href="#/inventario/{{id_lineaInventario}}">{{ lineaInventario.id_lineaInventario }} - {{ lineaInventario.cantidadProductos }}</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  
-  
+
 </div>
