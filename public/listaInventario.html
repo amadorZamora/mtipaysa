@@ -21,6 +21,7 @@
 	<tr>
 		<td>
 			<select ng-model="establecimientoSelected">
+
 				<option ng-repeat="establecimiento in establecimientos | orderBy: 'id_establecimiento'" value="{{establecimiento.id_establecimiento}}">{{establecimiento.id_establecimiento}}-{{establecimiento.direccion}}</option>
 			</select>
 		</td>
@@ -30,17 +31,16 @@
 
   	</table>
   
-  
-  
- <!--  <table class="table table-hover">
+    
+  <table class="table table-hover">
     <tbody>
-      <tr ng-repeat="lineaInventario in inventario | orderBy:'id_lineaInventario'" style="cursor:pointer">
+      <tr ng-repeat="lineaInventario in inventarios | orderBy:'id_lineaInventario'" style="cursor:pointer">
         <td>
-          <a ng-href="#/inventario/{{establecimiento.id_establecimiento}}">{{ establecimiento.id_establecimiento }} - {{ establecimiento.direccion }}</a>
+          <a ng-href="#/inventario/{{id_lineaInventario}}">{{ lineaInventario.id_lineaInventario }} - {{ lineaInventario.cantidadProductos }}</a>
         </td>
       </tr>
     </tbody>
-  </table> -->
+  </table>
   
   
   
