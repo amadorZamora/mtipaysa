@@ -14,14 +14,14 @@
 </div>
 <div ng-hide="editMode" class="container">
   <div>
-    <p ng-if="producto.codigo">Codigo: {{ producto.codigo | uppercase }}</p>
+    <p ng-if="producto.codigo">Código: {{ producto.codigo | uppercase }}</p>
     <p ng-if="producto.nombre">Nombre: {{ producto.nombre }}</p>
     <p ng-if="producto.moneda">Moneda: {{ producto.moneda }} </p>
-    <p ng-if="producto.descripcion">Descripcion: {{ producto.descripcion }} </p>
+    <p ng-if="producto.descripcion">Descripción: {{ producto.descripcion }} </p>
     <p ng-if="producto.precio">Precio: {{ producto.precio }} </p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Editar</button>
-      <a style="margin-top:20px" class="btn btn-default" href="#/listaProducto">Atras</a>
+      <a style="margin-top:20px" class="btn btn-default" href="#/listaProducto">Átras</a>
     </p>
   </div>
 </div>
