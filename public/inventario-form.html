@@ -1,0 +1,27 @@
+<div class="row" ng-hide="editMode">
+  <div class="col-md-6">
+      <h2>Creación Nueva Linea Inventario</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div>
+    <!-- Solo se habilita al momento de rear, no de editar. -->
+    <p>
+    	<label>Establecimiento (*)</label> 
+    	<input id="name" class="form-control" type="text" ng-model="inventario.establecimiento_id_establecimiento"  ng-disabled="editMode" required>
+    </p>
+    <p>
+    	<label>Producto (*)</label> 
+    	<input id="name" class="form-control  text-uppercase" type="text" ng-model="inventario.producto_codigo" ng-disabled="editMode" required> 
+    </p>
+    <p>
+      <label>Cantidad de Productos (*)</label> 
+      <input id="name" class="form-control" type="text" ng-model="inventario.cantidadProductos" required> 
+    </p>
+    <p>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="saveInventario(inventario)">Guardar</button>
+      <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Cancelar</button>
+    </p>
+  </div>
+</div>

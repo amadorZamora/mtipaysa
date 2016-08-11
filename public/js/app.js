@@ -62,6 +62,20 @@ app.config(function($routeProvider){
 			}
 		}
 	})
+	
+	//Nuevo inventario
+	.when("/new/inventario", {
+		controller: "NewInventarioController",
+		templateUrl: "inventario-form.html"
+	})
+	//Busqueda inventario por codigo
+	.when("/inventario/:id_lineaInventario", {
+		controller: "EditInventarioController",
+		templateUrl: "inventario.html"
+	})
+	
+	
+	
 	// otros casos del sitio, redirigen a la pagina del sitio principal
 	.otherwise({
 		redirectTo: "/"
@@ -341,10 +355,51 @@ app.controller("InventarioController", function($scope, $routeParams, Inventario
 			alert('Error: No existen datos');
 		});
 	};
-	
-	
 });
 
+//NewInventarioController
+app.controller("NewInventarioController", function($scope, $location, Inventarios) {
+	$scope.back = function() {
+		$location.path("listaInventario/");
+	}
+	$scope.saveInventario = function(inventario) {
+		Inventarios.createInventario(inventario).then(function(doc) {
+			var contactUrl = "listaInventario/";
+			$location.path(contactUrl);
+		}, function(response) {
+			alert(response);
+		});
+	}
+});
+
+//EditInventarioController
+app.controller("EditInventarioController", function($scope, $routeParams, Inventarios) {
+	// llamada servicio
+	Inventarios.getInventario($routeParams.id_lineaInventario).then(function(doc) {
+		$scope.inventario = doc.data;
+	}, function(response) {
+		alert(response);
+	});
+	$scope.toggleEdit = function() {
+		$scope.editMode = true;
+		$scope.contactFormUrl = "inventario-form.html";
+	}
+	$scope.back = function() {
+		$scope.editMode = false;
+		$scope.contactFormUrl = "listaInventario/";
+	}
+	$scope.saveInventario = function(inventario) {
+		// llamada servicio
+		Inventarios.editInventario(inventario);
+		$scope.editMode = false;
+		$scope.contactFormUrl = "listaInventario/";
+	}
+	$scope.deleteInventario = function(id_lineaInventario) {
+		// llamada servicio
+		Inventarios.deleteInventario(id_lineaInventario);
+	}
+
+});
 
 
 

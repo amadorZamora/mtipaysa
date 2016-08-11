@@ -225,10 +225,10 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 	 
 
 		    
-//POST lineaProducto
+//POST lineaInventario
 		 router.post("/inventarios",function(req,res){
 		        var query = "INSERT INTO ??(??,??,??) VALUES (?,?,?)";
-		        var table = ["lineaInventario","establecimiento_id_establecimiento","producto_codigo","cantidadProductos",req.body.id_establecimiento,req.body.codigo,req.body.cantidadProductos];
+		        var table = ["lineaInventario","establecimiento_id_establecimiento","producto_codigo","cantidadProductos",req.body.establecimiento_id_establecimiento,req.body.producto_codigo,req.body.cantidadProductos];
 		        query = mysql.format(query,table);
 		        connection.query(query,function(err,rows){
 		            if(err) {
