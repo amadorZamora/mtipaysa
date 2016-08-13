@@ -357,20 +357,6 @@ app.controller("InventarioController", function($scope, $routeParams, Inventario
 	};
 });
 
-//NewInventarioController
-app.controller("NewInventarioController", function($scope, $location, Inventarios) {
-	$scope.back = function() {
-		$location.path("listaInventario/");
-	}
-	$scope.saveInventario = function(inventario) {
-		Inventarios.createInventario(inventario).then(function(doc) {
-			var contactUrl = "listaInventario/";
-			$location.path(contactUrl);
-		}, function(response) {
-			alert(response);
-		});
-	}
-});
 
 //EditInventarioController
 app.controller("EditInventarioController", function($scope, $routeParams, Inventarios) {
@@ -398,9 +384,30 @@ app.controller("EditInventarioController", function($scope, $routeParams, Invent
 		// llamada servicio
 		Inventarios.deleteInventario(id_lineaInventario);
 	}
-
 });
 
+//TODO:Revisar funcionamiento.
+
+//NewInventarioController
+app.controller("NewInventarioController", function($scope, $location, Inventarios) {
+	
+	$scope.back = function() {
+		$location.path("listaInventario/");
+	}
+	
+	
+	
+	
+	
+	$scope.saveInventario = function(inventario) {
+		Inventarios.createInventario(inventario).then(function(doc) {
+			var contactUrl = "listaInventario/";
+			$location.path(contactUrl);
+		}, function(response) {
+			alert(response);
+		});
+	}
+});
 
 
 

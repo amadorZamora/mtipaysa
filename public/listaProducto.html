@@ -24,7 +24,7 @@
     	</tr>
     </thead>
     <tbody>
-      <tr ng-repeat="producto in productos | orderBy:'codigo'" style="cursor:pointer">
+      <tr ng-repeat="producto in productos['productos'] | orderBy:'codigo'" style="cursor:pointer">
         <td style="text-align:left">{{producto.codigo}}</td>
         <td style="text-align:left">{{producto.nombre}}</td>
         <td style="text-align:left">{{producto.moneda}}</td>

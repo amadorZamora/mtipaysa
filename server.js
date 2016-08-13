@@ -12,16 +12,11 @@ function WSPAYSA(){
     self.connectMysql();
 };
 
+//conexion a base de datos propia de herokuApp.
 WSPAYSA.prototype.connectMysql = function() {
     var self = this;
     var pool      =    mysql.createPool({
         connectionLimit : 100,
-        //host     : 'us-cdbr-iron-east-04.cleardb.net',
-        //user     : 'b261b8c5cca238',
-        //password : '3a3d600f',
-        //database : 'heroku_a9c433b2475ef33',
-		
-		
 		host     : 'gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         user     : 'g2llgdab0ia3l5in',
         password : 'ksepru6m1zp96qk2',

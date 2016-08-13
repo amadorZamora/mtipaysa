@@ -24,7 +24,7 @@
     	</tr>
     </thead>
     <tbody>
-      <tr ng-repeat="establecimiento in establecimientos | orderBy:'id_establecimiento'" style="cursor:pointer">
+      <tr ng-repeat="establecimiento in establecimientos['establecimientos'] | orderBy:'id_establecimiento'" style="cursor:pointer">
         <td style="text-align:left;">{{ establecimiento.id_establecimiento }}</td>
         <td style="text-align:left;">{{ establecimiento.direccion }}</td>
         <td style="text-align:left;">{{ establecimiento.pais }}</td>

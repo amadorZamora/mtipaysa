@@ -21,7 +21,7 @@
 				
 				<select ng-model="establecimientoSelected" ng-change="getListaInventario(establecimientoSelected)">
 
-					<option ng-repeat="establecimiento in establecimientos | orderBy: 'id_establecimiento'"	value="{{establecimiento.id_establecimiento}}">
+					<option ng-repeat="establecimiento in establecimientos['establecimientos'] | orderBy: 'id_establecimiento'"	value="{{establecimiento.id_establecimiento}}">
 						{{establecimiento.id_establecimiento}}-{{establecimiento.direccion}}
 					</option>
 				</select>
@@ -42,7 +42,7 @@
 		</thead>
 		
 		<tbody>
-			<tr ng-repeat="inventario in inventarios | orderBy:'id_lineaInventario'" style="cursor: pointer;text-align:center">
+			<tr ng-repeat="inventario in inventarios['inventarios'] | orderBy:'id_lineaInventario'" style="cursor: pointer;text-align:center">
 				<td style="text-align:left;">{{inventario.id_lineaInventario}}</td>
 				<td style="text-align:left;">{{inventario.producto_codigo}}</td>
 				<td style="text-align:left;">{{inventario.cantidadProductos}}</td>
