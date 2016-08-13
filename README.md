@@ -7,9 +7,10 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 </p>
 
 <h1>Recursos</h1>
-<p>
+<h5>
 Nota1: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguientes formatos (que se pueden solicitar mediante negociacion de contenido):
-
+</h5>
+<p>
 <ul>
 	<li>json</li>
 		<ul>
@@ -25,9 +26,9 @@ Nota1: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los sigui
 		</ul>
 </ul>
 </p>
-<p>
+<h5>
 Nota2:Ante una instalación propia de este webservice, la url debe ser modificada con su propio host. Se debe cambiar https://mtipaysa.herokuapp.com por su host particular.
-</p>
+</h5>
 
 <ol>
 	<li>Establecimientos</li>
@@ -79,7 +80,7 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 			<li>DELETE</li>
 			
 
-			
+
 		</ul>
 	</p>	
 
