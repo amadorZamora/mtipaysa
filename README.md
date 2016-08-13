@@ -37,6 +37,7 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 		</ul>
 	</p>
 	<p>	
+		<h4>Métodos</h4>
 		<ul>
 			<li>GET all</li>
 			<li>GET by id</li>
