@@ -30,20 +30,21 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 	<p>
 		El objeto Establecimiento consta de los siguientes campos:
 		<ul>
-			<li>id_establecimiento/li>
+			<li>id_establecimiento</li>
 			<li>direccion</li>
 			<li>pais</li>
 			<li>telefono</li>
 		</ul>
+		<ul>
+			<li>GET all</li>
+			<li>GET by id</li>
+			<li>PUT</li>
+			<li>POST</li>
+			<li>DELETE</li>
+	</ul>
 	</p>	
 
-	<ul>
-		<li>GET all</li>
-		<li>GET by id</li>
-		<li>PUT</li>
-		<li>POST</li>
-		<li>DELETE</li>
-	</ul>
+	
 
 <li>Recurso Productos</li>
 
