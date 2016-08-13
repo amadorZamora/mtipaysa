@@ -9,38 +9,42 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 <h1>Recursos</h1>
 <p>
 Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguientes formatos (que se pueden solicitar mediante negociacion de contenido):
-- json: Content-Type application/json  
-- xml: Content-Type application/xml
-- html: Content-Type text/html
 </p>
+<ul>
+	<li>json</li>
+		<ul>
+			<li>Content-Type application/json</li>
+		</ul>
+	<li>xml</li>
+		<ul>
+			<li>Content-Type application/xml</li>
+		</ul>
+	<li>html</li>
+		<ul>
+			<li>Content-Type text/html</li>
+		</ul>
+</ul>
 
 <ol>
-<li>Recurso Establecimientos</li>
-<p>
-El objeto Establecimiento consta de los siguientes campos:
-- id_establecimiento 
-- direccion
-- pais
-- telefono
-</p>	
+	<li>Recurso Establecimientos</li>
+	<p>
+		El objeto Establecimiento consta de los siguientes campos:
+		<ul>
+			<li>id_establecimiento/li>
+			<li>direccion</li>
+			<li>pais</li>
+			<li>telefono</li>
+		</ul>
+	</p>	
 
-	<li>
-		<ol>GET all</ol>
-		<ol>GET by id</ol>
-		<ol>PUT</ol>
-		<ol>POST</ol>
-		<ol>DELETE</ol>
-	</li>
+	<ul>
+		<li>GET all</li>
+		<li>GET by id</li>
+		<li>PUT</li>
+		<li>POST</li>
+		<li>DELETE</li>
+	</ul>
 
 <li>Recurso Productos</li>
 
 <li>Recurso Inventarios</li>
-
-
-
-
-- Api funciona de la siguiente forma:
-- 3 objetos: establecimiento, producto, inventario
-- Metodos get, get All, put, post , delete para cada respositorio
-- Se agrega sitio web desarrollado en angulas js con funcionalidades para establecimiento, producto y listado de inventario por establecimiento.
-- Se cambia base de datos para aumentar performance de sitio web.
