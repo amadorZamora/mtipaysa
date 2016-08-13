@@ -8,8 +8,8 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 
 <h1>Recursos</h1>
 <p>
-Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguientes formatos (que se pueden solicitar mediante negociacion de contenido):
-</p>
+Nota1: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguientes formatos (que se pueden solicitar mediante negociacion de contenido):
+
 <ul>
 	<li>json</li>
 		<ul>
@@ -24,9 +24,13 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 			<li>Content-Type text/html</li>
 		</ul>
 </ul>
+</p>
+<p>
+Nota2:Ante una instalación propia de este webservice, la url debe ser modificada con su propio host. Se debe cambiar https://mtipaysa.herokuapp.com por su host particular.
+</p>
 
 <ol>
-	<li>Recurso Establecimientos</li>
+	<li>Establecimientos</li>
 	<p>
 		El objeto Establecimiento consta de los siguientes campos:
 		<ul>
@@ -39,15 +43,32 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 	<p>	
 		<h4>Métodos</h4>
 		<ul>
-			<li>GET all</li>
+			<li>GET All</li>
 			<p>
 				<ul>
-					<li>URL: <a href="https://mtipaysa.herokuapp.com/establecimientos">https://mtipaysa.herokuapp.com/establecimientos</a>
+					<li>URL: https://mtipaysa.herokuapp.com/establecimientos
 					</li>
-					<li>Parametros: No aplica</li>
+					<li>Parámetros: No aplica</li>
 				</ul>
 			</p>
-			<li>GET by id</li>
+			<li>GET by Id</li>
+			<p>
+				<ul>
+					<li>URL: https://mtipaysa.herokuapp.com/establecimientos/<div style="color:red">id_establecimiento</div>
+					</li>
+					<li>Parámetros:</li>
+					<p>
+						<ul>
+							<li style="color:red">id_establecimiento: Número Entero</li>
+						</ul>
+					</p>
+				</ul>
+			</p>
+
+
+
+
+
 			
 			<li>PUT</li>
 			
@@ -59,6 +80,6 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 
 	
 
-<li>Recurso Productos</li>
+<li>Productos</li>
 
-<li>Recurso Inventarios</li>
+<li>Inventarios</li>
