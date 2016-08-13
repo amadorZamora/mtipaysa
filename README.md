@@ -46,22 +46,24 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 			<li>GET All</li>
 			<p>
 				<ul>
-					<li>URL: https://mtipaysa.herokuapp.com/establecimientos
+					<li>Acceso: {host}/establecimientos
 					</li>
 					<li>Parámetros: No aplica</li>
+					<li>Ejm: http://mtipaysa.herokuapp.com/establecimientos</li>
 				</ul>
 			</p>
 			<li>GET by Id</li>
 			<p>
 				<ul>
-					<li>URL: https://mtipaysa.herokuapp.com/establecimientos/id_establecimiento
+					<li>Acceso: {host}/establecimientos/:id_establecimiento
 					</li>
 					<li>Parámetros:</li>
-					<p>
-						<ul>
-							<li>id_establecimiento: entero</li>
-						</ul>
-					</p>
+						<p>
+							<ul>
+								<li>id_establecimiento: entero</li>	
+							</ul>
+						</p>
+					<li>Ejm: http://mtipaysa.herokuapp.com/establecimientos/1</li>
 				</ul>
 			</p>
 
@@ -75,6 +77,9 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 			<li>POST</li>
 			
 			<li>DELETE</li>
+			
+
+			
 		</ul>
 	</p>	
 
