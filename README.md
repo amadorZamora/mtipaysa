@@ -54,12 +54,12 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 			<li>GET by Id</li>
 			<p>
 				<ul>
-					<li>URL: https://mtipaysa.herokuapp.com/establecimientos/<div style="color:red">id_establecimiento</div>
+					<li>URL: https://mtipaysa.herokuapp.com/establecimientos/id_establecimiento
 					</li>
 					<li>Parámetros:</li>
 					<p>
 						<ul>
-							<li style="color:red">id_establecimiento: Número Entero</li>
+							<li>id_establecimiento: entero</li>
 						</ul>
 					</p>
 				</ul>
