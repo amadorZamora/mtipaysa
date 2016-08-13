@@ -40,9 +40,19 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 		<h4>Métodos</h4>
 		<ul>
 			<li>GET all</li>
+			<p>
+				<ul>
+					<li>URL: <a href="https://mtipaysa.herokuapp.com/establecimientos">https://mtipaysa.herokuapp.com/establecimientos</a>
+					</li>
+					<li>Parametros: No aplica</li>
+				</ul>
+			</p>
 			<li>GET by id</li>
+			
 			<li>PUT</li>
+			
 			<li>POST</li>
+			
 			<li>DELETE</li>
 		</ul>
 	</p>	
