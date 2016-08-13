@@ -35,13 +35,15 @@ Nota: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguie
 			<li>pais</li>
 			<li>telefono</li>
 		</ul>
+	</p>
+	<p>	
 		<ul>
 			<li>GET all</li>
 			<li>GET by id</li>
 			<li>PUT</li>
 			<li>POST</li>
 			<li>DELETE</li>
-	</ul>
+		</ul>
 	</p>	
 
 	
