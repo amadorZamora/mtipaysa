@@ -1,5 +1,3 @@
-
-<html>
 # Web Service wsPaysa
 <p>
 Servicio web rest desarrollado en nodeJs, desplegado en servidor Heroku con base de datos MySQL.
@@ -38,14 +36,14 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 	</li>
 	<li>
 		<p>
-			<h4>Las operaciones a realizar sobre los recursos retornan los sigientes codigos HTTP de estado:</h4>
+			<h4>Las operaciones disponibles sobre los recursos retornan los sigientes codigos  HTTP de estado en caso de éxito de la operación:</h4>
 			<ul>
 				<li>GET : 200</li>
 				<li>POST: 201</li>	
 				<li>PUT: 204</li>
 				<li>DELETE: 204</li>
 			</ul>
-			Esta implimentación esta basada en la documentacion oficial W3 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">Link</<>
+			Esta implementación esta basada en la información oficial de utilización de codigos HTTP por W3C <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">Link</a>
 		</p>
 	</li>	
 </ul>
@@ -56,7 +54,7 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 	<p>
 		El objeto Establecimiento consta de los siguientes campos:
 		<ul>
-			<li>id_establecimiento: number</li>
+			<li>id_establecimiento: number          <h5>**No necesario para metodo post</h5></li>
 			<li>direccion: string</li>
 			<li>pais: string</li>
 			<li>telefono: string</li>
@@ -139,7 +137,7 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 <p>
 		El objeto PRODUCTO consta de los siguientes campos:
 		<ul>
-			<li>codigo: string</li>
+			<li>codigo: string          <h5>**No necesario para metodo post</h5></li>
 			<li>nombre: string</li>
 			<li>moneda: string</li>
 			<li>descripcion: string</li>
@@ -223,7 +221,7 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 <p>
 		El objeto inventario consta de los siguientes campos:
 		<ul>
-			<li>id_lineaInventario: number</li>
+			<li>id_lineaInventario: number          <h5>**No necesario para metodo post</h5></li>
 			<li>establecimiento_id_establecimiento: number</li>
 			<li>producto_codigo: string</li>
 			<li>cantidadProductos: number</li>
@@ -270,7 +268,51 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 					<li>Ejm: http://mtipaysa.herokuapp.com/inventarios/1</li>
 				</ul>
 			</p>
+			<li>POST</li>
+			<p>
+				<ul>
+					<li>Acceso: {host}/inventarios
+					</li>
+					<li>Parámetros:</li>
+						<p>
+							<ul>
+								<li>inventario: object</li>	
+							</ul>
+						</p>
+					<li>Ejm URL: http://mtipaysa.herokuapp.com/inventarios</li>
+				</ul>
+			</p>
+			<li>PUT</li>
+			<p>
+				<ul>
+					<li>Acceso: {host}/inventarios
+					</li>
+					<li>Parámetros:</li>
+						<p>
+							<ul>
+								<li>inventario: object</li>	
+							</ul>
+						</p>
+					<li>Ejm URL: http://mtipaysa.herokuapp.com/inventarios</li>
+				</ul>
+			</p>
+			<li>DELETE</li>
+			<p>
+				<ul>
+					<li>Acceso: {host}/inventarios/:id_lineaInventario
+					</li>
+					<li>Parámetros:</li>
+						<p>
+							<ul>
+								<li>id_lineaInventario: number</li>	
+							</ul>
+						</p>
+					<li>Ejm URL: http://mtipaysa.herokuapp.com/inventarios/1</li>
+				</ul>
+			</p>
+
+
+
 		</ul>
 	</p>
 </ol>
-</html>
