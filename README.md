@@ -1,4 +1,5 @@
 
+<html>
 # Web Service wsPaysa
 <p>
 Servicio web rest desarrollado en nodeJs, desplegado en servidor Heroku con base de datos MySQL.
@@ -152,6 +153,49 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 					<li>Ejm: http://mtipaysa.herokuapp.com/productos/AABBCC</li>
 				</ul>
 			</p>
+			<li>POST</li>
+			<p>
+				<ul>
+					<li>Acceso: {host}/productos
+					</li>
+					<li>Parámetros:</li>
+						<p>
+							<ul>
+								<li>producto: object</li>	
+							</ul>
+						</p>
+					<li>Ejm URL: http://mtipaysa.herokuapp.com/productos</li>
+				</ul>
+			</p>
+			<li>PUT</li>
+			<p>
+				<ul>
+					<li>Acceso: {host}/productos
+					</li>
+					<li>Parámetros:</li>
+						<p>
+							<ul>
+								<li>producto: object</li>	
+							</ul>
+						</p>
+					<li>Ejm URL: http://mtipaysa.herokuapp.com/productos</li>
+				</ul>
+			</p>
+			<li>DELETE</li>
+			<p>
+				<ul>
+					<li>Acceso: {host}/productos/:id_producto
+					</li>
+					<li>Parámetros:</li>
+						<p>
+							<ul>
+								<li>id_producto: codigo</li>	
+							</ul>
+						</p>
+					<li>Ejm URL: http://mtipaysa.herokuapp.com/establecimientos/1</li>
+				</ul>
+			</p>
+
 		</ul>
 	</p>
 
@@ -210,4 +254,4 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 		</ul>
 	</p>
 </ol>
-
+</html>
