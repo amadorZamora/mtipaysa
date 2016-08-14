@@ -340,10 +340,10 @@ wspaysa_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 
 //	***** OK
 //	GET producto by Id
-	router.get("/productos/:id_producto",function(req,res){
+	router.get("/productos/:codigo",function(req,res){
 		var data = {};
 		var query = "SELECT * FROM ?? WHERE ??=?";
-		var table = ["producto","codigo",req.params.id_producto];
+		var table = ["producto","codigo",req.params.codigo];
 		query = mysql.format(query,table);
 
 		connection.query(query,function(err,rows){

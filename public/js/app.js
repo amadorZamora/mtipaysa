@@ -394,11 +394,7 @@ app.controller("NewInventarioController", function($scope, $location, Inventario
 	$scope.back = function() {
 		$location.path("listaInventario/");
 	}
-	
-	
-	
-	
-	
+
 	$scope.saveInventario = function(inventario) {
 		Inventarios.createInventario(inventario).then(function(doc) {
 			var contactUrl = "listaInventario/";
