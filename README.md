@@ -1,4 +1,4 @@
-<HTML>
+
 # Web Service wsPaysa
 <p>
 Servicio web rest desarrollado en nodeJs, desplegado en servidor Heroku con base de datos MySQL.
@@ -210,4 +210,4 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 		</ul>
 	</p>
 
-</HTML>
+
