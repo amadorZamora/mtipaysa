@@ -1,6 +1,6 @@
 # Web Service wsPaysa
 <p>
-Servicio web rest desarrollado en nodeJs, desplegado en servidor Heroku con base de datos MySQL.
+Servicio web rest desarrollado en nodeJs, desplegado en servidor Heroku con base de datos MySQL (JawsMySQL).
 </p>
 <p>
 A continuación se describen los recursos disponibles de este servicio web ademas de las formas de utilización.
