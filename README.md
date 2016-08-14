@@ -9,28 +9,47 @@ A continuación se describen los recursos disponibles de este servicio web ademas
 </p>
 
 <h1>Recursos</h1>
-<h5>
-Nota1: Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguientes formatos (que se pueden solicitar mediante negociacion de contenido):
-</h5>
-<p>
-	<ul>
-		<li>json</li>
+<h3>Notas:</h3>
+<ul>
+	<li>
+			<p>
+			<h4>Cada recurso en sus métodos GET Y GET ALL retornar los datos en los siguientes formatos (que se pueden solicitar mediante negociacion de contenido):</h4>
+				<ul>
+					<li>json</li>
+						<ul>
+							<li>Content-Type application/json</li>
+						</ul>
+					<li>xml</li>
+						<ul>
+							<li>Content-Type application/xml</li>
+						</ul>
+					<li>html</li>
+						<ul>
+							<li>Content-Type text/html</li>
+						</ul>
+				</ul>
+			</p>	
+		
+	</li>
+	<li>
+		<p>
+			<h4>Ante una instalación propia de este webservice, la url debe ser modificada con su propio host. Se debe cambiar https://mtipaysa.herokuapp.com por su host particular.</h4>
+		</p>
+	</li>
+	<li>
+		<p>
+			<h4>Las operaciones a realizar sobre los recursos retornan los sigientes codigos HTTP de estado:</h4>
 			<ul>
-				<li>Content-Type application/json</li>
+				<li>GET : 200</li>
+				<li>POST: 201</li>	
+				<li>PUT: 204</li>
+				<li>DELETE: 204</li>
 			</ul>
-		<li>xml</li>
-			<ul>
-				<li>Content-Type application/xml</li>
-			</ul>
-		<li>html</li>
-			<ul>
-				<li>Content-Type text/html</li>
-			</ul>
-	</ul>
-</p>
-<h5>
-Nota2:Ante una instalación propia de este webservice, la url debe ser modificada con su propio host. Se debe cambiar https://mtipaysa.herokuapp.com por su host particular.
-</h5>
+			Esta implimentación esta basada en la documentacion oficial W3 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">Link</<>
+		</p>
+	</li>	
+</ul>
+
 
 <ol>
 	<li><h3>Establecimientos</h3></li>
@@ -142,12 +161,12 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 			<li>GET by Id</li>
 			<p>
 				<ul>
-					<li>Acceso: {host}/productos/:id_producto
+					<li>Acceso: {host}/productos/:codigo
 					</li>
 					<li>Parámetros:</li>
 						<p>
 							<ul>
-								<li>id_producto: string</li>	
+								<li>codigo: string</li>	
 							</ul>
 						</p>
 					<li>Ejm: http://mtipaysa.herokuapp.com/productos/AABBCC</li>
@@ -240,12 +259,12 @@ Nota2:Ante una instalación propia de este webservice, la url debe ser modificada
 			<li>GET by Id</li>
 			<p>
 				<ul>
-					<li>Acceso: {host}/inventarios/:id_inventario
+					<li>Acceso: {host}/inventarios/:id_lineaInventario
 					</li>
 					<li>Parámetros:</li>
 						<p>
 							<ul>
-								<li>id_inventario: number</li>	
+								<li>id_lineaInventario: number</li>	
 							</ul>
 						</p>
 					<li>Ejm: http://mtipaysa.herokuapp.com/inventarios/1</li>
