@@ -18,12 +18,7 @@
 		</tr>
 		<tr>
 			<td>
-				
-				<select ng-model="establecimientoSelected" ng-change="getListaInventario(establecimientoSelected)">
-
-					<option ng-repeat="establecimiento in establecimientos['establecimientos'] | orderBy: 'id_establecimiento'"	value="{{establecimiento.id_establecimiento}}">
-						{{establecimiento.id_establecimiento}}-{{establecimiento.direccion}}
-					</option>
+				<select ng-options="establecimiento as establecimiento.direccion for establecimiento in establecimientos['establecimientos'] | orderBy: 'id_establecimiento' track by establecimiento.id_establecimiento" ng-model="establecimientoSelected" ng-change="getListaInventario()">
 				</select>
 				
 			</td>

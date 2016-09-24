@@ -345,11 +345,14 @@ app.controller("EditProductoController", function($scope, $routeParams, Producto
 });
 
 // InventarioController
-app.controller("InventarioController", function($scope, $routeParams, Inventarios,establecimientos) {
+app.controller("InventarioController", function($rootScope, $scope, $routeParams, Inventarios,establecimientos) {
 	$scope.establecimientos = establecimientos.data;
 	
-	$scope.getListaInventario = function(establecimientoSelected) {
-		Inventarios.getInventariosFilterByEstablecimientos(establecimientoSelected).then(function(doc){
+	$scope.getListaInventario = function() {
+		//console.log($scope.establecimientoSelected);
+		$rootScope.establecimiento = $scope.establecimientoSelected;
+		$rootScope.$broadcast('LamadoAControllerB');
+		Inventarios.getInventariosFilterByEstablecimientos($scope.establecimientoSelected.id_establecimiento).then(function(doc){
 			$scope.inventarios = doc.data;
 		},function(doc){
 			alert('Error: No existen datos');
@@ -359,13 +362,37 @@ app.controller("InventarioController", function($scope, $routeParams, Inventario
 
 
 //EditInventarioController
-app.controller("EditInventarioController", function($scope, $routeParams, Inventarios) {
+app.controller("EditInventarioController", function($scope, $rootScope, $routeParams, Inventarios, Productos, $location ) {
+	
+	
+	//declaramos objeto en blanco
+	$scope.inventario = {};
+	
+	//llamamos al constructor
+	init();
+	
+	//definicion de constructor privado
+	function init(){
+		$scope.inventario.establecimiento_id_establecimiento = $rootScope.establecimiento.direccion;
+		
+		
+		Productos.getProductos().then(function(response){
+			console.log(response.data.productos);
+			$scope.listaProductos = response.data.productos;
+		});		
+
+	}
+	
+	
+	
+	
 	// llamada servicio
 	Inventarios.getInventario($routeParams.id_lineaInventario).then(function(doc) {
 		$scope.inventario = doc.data;
 	}, function(response) {
 		alert(response);
 	});
+	
 	$scope.toggleEdit = function() {
 		$scope.editMode = true;
 		$scope.contactFormUrl = "inventario-form.html";
@@ -374,11 +401,13 @@ app.controller("EditInventarioController", function($scope, $routeParams, Invent
 		$scope.editMode = false;
 		$scope.contactFormUrl = "listaInventario/";
 	}
-	$scope.saveInventario = function(inventario) {
+	$scope.saveInventario = function() {
+		console.log($scope.inventario);
 		// llamada servicio
-		Inventarios.editInventario(inventario);
+		Inventarios.editInventario($scope.inventario);
 		$scope.editMode = false;
-		$scope.contactFormUrl = "listaInventario/";
+		$location.path("/listaInventario");
+		//$scope.contactFormUrl = "listaInventario/";
 	}
 	$scope.deleteInventario = function(id_lineaInventario) {
 		// llamada servicio
@@ -389,14 +418,43 @@ app.controller("EditInventarioController", function($scope, $routeParams, Invent
 //TODO:Revisar funcionamiento.
 
 //NewInventarioController
-app.controller("NewInventarioController", function($scope, $location, Inventarios) {
+app.controller("NewInventarioController", function($rootScope, $scope, $location, Inventarios, Productos) {
+	
+	//declaramos objeto en blanco
+	$scope.inventario = {};
+	
+	//llamamos al constructor
+	init();
+	
+	//definicion de constructor privado
+	function init(){
+		$scope.inventario.establecimiento_id_establecimiento = $rootScope.establecimiento.direccion;
+		
+		
+		Productos.getProductos().then(function(response){
+			console.log(response.data.productos);
+			$scope.listaProductos = response.data.productos;
+		});		
+
+	}
+
+	//Ejemplo de como recibir el llamado desde otro controller 
+	/*$rootScope.$on('LamadoAControllerB', function(event){
+		console.log('aaa');
+		console.log($rootScope.establecimiento);
+		$scope.inventario.establecimiento_id_establecimiento = $rootScope.establecimiento;
+	});*/
 	
 	$scope.back = function() {
 		$location.path("listaInventario/");
 	}
 
-	$scope.saveInventario = function(inventario) {
-		Inventarios.createInventario(inventario).then(function(doc) {
+	$scope.saveInventario = function() {
+		
+		//se setea nuevamente la variable para enviar correctamente el id del objeto
+		$scope.inventario.establecimiento_id_establecimiento = $rootScope.establecimiento.id_establecimiento;
+
+		Inventarios.createInventario($scope.inventario).then(function(doc) {
 			var contactUrl = "listaInventario/";
 			$location.path(contactUrl);
 		}, function(response) {

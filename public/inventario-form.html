@@ -6,22 +6,41 @@
 
 <div class="container">
   <div>
-    <!-- Solo se habilita al momento de rear, no de editar. -->
-    <p>
-    	<label>Establecimiento (*)</label> 
-    	<input id="name" class="form-control" type="text" ng-model="inventario.establecimiento_id_establecimiento"  ng-disabled="editMode" required>
-    </p>
-    <p>
-    	<label>Producto (*)</label> 
-    	<input id="name" class="form-control  text-uppercase" type="text" ng-model="inventario.producto_codigo" ng-disabled="editMode" required> 
-    </p>
-    <p>
-      <label>Cantidad de Productos (*)</label> 
-      <input id="name" class="form-control" type="text" ng-model="inventario.cantidadProductos" required> 
-    </p>
-    <p>
-      <button style="margin-top:20px" class="btn btn-default" ng-click="saveInventario(inventario)">Guardar</button>
-      <button style="margin-top:20px" class="btn btn-default" ng-click="back()">Átras</button>
-    </p>
+    <!-- Solo se habilita al momento de crear, no de editar. -->
+    <table>
+		<tr>
+			<td>Establecimiento(*)</td>
+		</tr>
+		<tr>
+			<td>
+				<input id="name" class="form-control" type="text" ng-model="inventario.establecimiento_id_establecimiento"  ng-disabled="true" required>
+			</td>
+		</tr>
+		<tr>
+			<td>Producto(*)</td>
+		</tr>
+		<tr>
+			<td>
+				<select ng-model="inventario.producto_codigo" ng-disabled="editMode">
+					<option ng-repeat="producto in listaProductos" value="{{producto.codigo}}">{{producto.nombre}}</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Cantidad de Productos(*)</td>
+		</tr>
+		<tr>
+			<td>
+				<input id="name" class="form-control" type="text" ng-model="inventario.cantidadProductos" required> 
+			</td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+			<td><button style="margin-top:20px" class="btn btn-default" ng-click="saveInventario()">Guardar</button></td>
+			<td><button style="margin-top:20px" class="btn btn-default" ng-click="back()">Átras</button></td>
+		</tr>
+	</table>
   </div>
 </div>
