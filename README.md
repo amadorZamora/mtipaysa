@@ -1,4 +1,4 @@
-# Web Service wsPaysa
+# Web Service wsPaysa - MTI 2016
 <p>
 Servicio web rest desarrollado en nodeJs, desplegado en servidor Heroku con base de datos MySQL (JawsMySQL).
 </p>
